@@ -1,0 +1,42 @@
+Docker Commiting
+
+
+docker ps
+
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS              NAMES
+c3f279d17e0a        ubuntu:12.04        /bin/bash           7 days ago          Up 25 hours                            desperate_dubinsky
+197387f1b436        ubuntu:12.04        /bin/bash           7 days ago          Up 25 hours                            focused_hamilton
+
+$ docker commit c3f279d17e0a  svendowideit/testimage:version3
+
+f5283438590d
+
+$ docker images
+
+REPOSITORY                        TAG                 ID                  CREATED             SIZE
+svendowideit/testimage            version3            f5283438590d        16 seconds ago      335.7 MB
+
+
+one bash at a time
+https://docs.docker.com/v17.09/engine/userguide/eng-image/dockerfile_best-practices/#avoid-installing-unnecessary-packages
+ENTRYPOINT ["/bin/project"]
+CMD ["--help"]
+
+n most other cases, CMD should be given an interactive shell, such as bash, python and perl. For example, CMD ["perl", "-de0"], CMD ["python"], or CMD [“php”, “-a”]. Using this form means that when you execute something like docker run -it python, you’ll get dropped into a usable shell, ready to go. CMD should rarely be used in the manner of CMD [“param”, “param”] in conjunction with ENTRYPOINT, unless you and your expected users are already quite familiar with how ENTRYPOINT works.
+entrypoint will aquire the bash 
+
+
+commit
+entrypoint and cmd
+multiple volumes 
+docker with slave machine
+
+
+-p 8080:8980 -p 2030:7080
+
+-v local1:local2 -v local2:local3
+
+
+entry point or cmd commadn can be used together ?
+
+https://wiki.jenkins.io/display/JENKINS/Docker+Plugin
